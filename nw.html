@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black !important;
+            letter-spacing: 1px;
+        }
+        
+        #main {
+            height: 450px;
+            width: 40%;
+            border: 1px solid #00ccff;
+            margin: auto;
+            margin-top: 50px;
+            box-shadow: 0 0 12px #00ccff;
+            padding: 20px;
+            padding-right: 20px;
+        }
+        
+        #main2 {
+            margin: 14px auto !important;
+            height: 40px;
+            width: 40%;
+            border: 1px solid #00ccff;
+            box-shadow: 0 2px 12px #00ccff;
+            padding: 20px;
+        }
+        
+        #main2 p {
+            text-align: center;
+            display: block;
+            font-size: 12px;
+            color: white;
+        }
+        
+        a {
+            color: #0099ff;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        a:hover {
+            color: #00ccff;
+            border-bottom: 1px solid #00ccff;
+        }
+        
+        h1 {
+            font-size: 30px;
+            color: white;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        input {
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            border: 1px solid #0099ff;
+            display: block;
+            width: 90%;
+            margin: auto;
+            color: white;
+            letter-spacing: 1px;
+            font-size: 10px;
+        }
+        
+        input:hover {
+            box-shadow: 0 0 10px #0099ff;
+        }
+        
+        button {
+            display: block;
+            padding: 10px;
+            width: 95%;
+            margin: auto;
+            margin-top: 30px;
+            background-color: #0099ff;
+            color: white;
+            border: none;
+        }
+        
+        button:hover {
+            background-color: #00ccff;
+        }
+        
+        #forgot {
+            color: #0099ff;
+            font-size: 10px;
+            display: inline;
+            margin: 10px;
+            padding-top: 20px !important;
+        }
+        
+        #forgot:hover {
+            color: #00ccff;
+            border-bottom: 1px solid #00ccff;
+        }
+        
+        i {
+            color: white;
+        }
+        
+        #err {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./addproduct.html">addproduct</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html">login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./singup.html">singup</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="main">
+        <form action id="valdi_form">
+            <h1>Log in</h1>
+            <input type="text" placeholder="username*" id="username" style="margin-bottom:40px ;">
+
+            <input type="password " placeholder="password* " id="password ">
+
+            <a href="# " id="forgot ">Forgot password?</a>
+            <button>Log in </button>
+
+            <div id="message "></div>
+            <button><a href="https://www.google.co.in/ "
+                        style="color: white; font-size: 12px; letter-spacing: 1px; "><i
+                            class="fa-brands fa-google "></i> log in with google
+                    </a></button>
+
+        </form>
+    </div>
+    <div id="main2 ">
+        <p>Don't have an account? <a href>Sing up</a></p>
+    </div>
+    <script>
+        const validation_form = (e) => {
+            e.preventDefault();
+    
+            let username = document.querySelector("#username").value;
+            let password = document.querySelector("#password").value;
+    
+            var nameRegex = /^[a-zA-Z\-]+$/;
+            var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    
+            if (nameRegex.test(username) == false) {
+                document.querySelector("#username").style.border = "1px solid red";
+                document.getElementById("err").innerHTML = "Enter a valid username";
+                return;
+            }
+    
+            if (regularExpression.test(password) == false) {
+                document.querySelector("#password").style.border = "1px solid red";
+                document.getElementById("err").innerHTML = "Enter a valid password (6-16 characters, letters, and numbers only)";
+                return;
+            }
+    
+            // If both username and password are valid, submit the form
+            document.getElementById("valdi_form").submit();
+        }
+    
+        document.querySelector("#valdi_form").addEventListener("submit", validation_form);
+    </script>
+    
+</body>
+
+</html>

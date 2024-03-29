@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Log in </title>
+    <style>
+        body {
+            background-color: #F3EEEA !important;
+            letter-spacing: 1px;
+        }
+        
+        #main {
+            height: 450px;
+            width: 40%;
+            border: 1px solid #B99470;
+            margin: auto;
+            margin-top: 50px;
+            box-shadow: 0 0 12px #B99470;
+            padding: 20px;
+            padding-right: 20px;
+        }
+        
+        #main2 {
+            margin: 14px auto;
+            height: 60px;
+            width: 40%;
+            border: 1px solid #B99470;
+            box-shadow: 0 2px 12px #B99470;
+            padding: 20px;
+        }
+        
+        #main2 p {
+            text-align: center;
+            display: block;
+            font-size: 12px;
+            color: #b98a5a;
+        }
+        
+        #forgot {
+            color: #B99470;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        #forgot:hover {
+            color: #B99470;
+            border-bottom: 1px solid #B99470;
+        }
+        
+        #main h1 {
+            font-size: 30px;
+            color: #B99470;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        input {
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            border: 1px solid #B99470;
+            display: block;
+            width: 90%;
+            margin: auto;
+            color: #b98a5a;
+            letter-spacing: 1px;
+            font-size: 10px;
+        }
+        
+        input:hover {
+            box-shadow: 0 0 10px #B99470;
+        }
+        
+        #singupbtn {
+            display: block;
+            padding: 10px;
+            width: 95%;
+            margin: auto;
+            margin-top: 30px;
+            background-color: #B99470;
+            color: #ffffff;
+            border: none;
+        }
+        
+        #singupbtn:hover {
+            background-color: #b98a5a;
+        }
+        
+        #forgot {
+            color: #B99470;
+            font-size: 10px;
+            display: inline;
+            margin: 10px;
+            padding-top: 20px !important;
+        }
+        
+        #forgot:hover {
+            color: #b98a5a;
+            border-bottom: 1px solid #b98a5a;
+        }
+        
+        i {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./addproduct.html">addproduct</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cart.html">cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html">login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./singup.html">singup</a>
+                    </li>
+                    <form class="d-flex" role="search" id="searching">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="abc">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div id="main">
+        <form action="" id="valdi_form">
+            <h1>Sing up</h1>
+            <input type="text" placeholder="username*" id="username" style="margin-bottom:40px ;">
+            <input type="password" placeholder="password*" id="password">
+
+
+            <a href="#" id="forgot">Forgot password?</a>
+            <button id="singupbtn">Log in </button>
+
+            <div id="message"></div>
+            <button id="singupbtn"><a href="https://www.google.co.in/" id="forgot" style="color: white; font-size: 12px; letter-spacing: 1px;"><i class="fa-brands fa-google"></i> log in with google </a></button>
+
+        </form>
+    </div>
+    <div id="main2">
+        <p> Have an account? <a href="./login.html">Log in</a></p>
+    </div>
+
+    <script>
+        const validation_form = (e) => {
+            e.preventDefault();
+
+            let username = document.querySelector("#username").value;
+            let password = document.querySelector("#password").value;
+
+            var nameRegex = /^[a-zA-Z\-]+$/;
+            var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+            if (nameRegex.test(username) == false) {
+                document.querySelector("#username").style.border = "1px solid red";
+                // alert("Enter a valid username");
+                document.getElementById("err").innerHTML = "Enter a valid username "
+                return;
+
+                return;
+            } else {
+                document.querySelector("#password ").style.border = "1px solid green ";
+            }
+
+            if (regularExpression.test(password) == false) {
+                document.querySelector("#password").style.border = "1px solid red";
+                // alert("Enter a valid password");
+                document.getElementById("err").innerHTML = "Enter a valid username "
+                return;
+            } else {
+                document.querySelector("#password ").style.border = "1px solid green ";
+            }
+            window.location.href = "/login-singupwithlocal-master/product.html"
+        }
+
+        document.querySelector("#valdi_form").addEventListener("submit", validation_form);
+    </script>
+</body>
+
+</html>

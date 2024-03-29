@@ -1,0 +1,18 @@
+.navbar {
+    background-color: #b98a5a !important;
+}
+
+.nav-link {
+    color: aliceblue;
+}
+
+.nav-link:active {
+    color: aliceblue !important;
+}
+
+#optins {
+    background-color: #F3EEEA;
+    color: #b98a5a;
+    border: none;
+    border-radius: 10px;
+}

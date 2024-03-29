@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #F3EEEA;
+        text-align: center;
+    }
+    
+    #form {
+        width: 60%;
+        margin: auto;
+    }
+    
+    button {
+        background-color: #B99470;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: auto;
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    input {
+        width: 90%;
+        background-color: transparent;
+        padding: 10px;
+        margin: 20px;
+        border: #A4907C solid 2px;
+    }
+    
+    input:hover {
+        box-shadow: 0 0 10px #B99470;
+    }
+    
+    .data {
+        background-color: #A4907C;
+        margin: 30px;
+        width: 250px;
+        padding: 30px;
+        color: #EBE3D5;
+    }
+    
+    #box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    p {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./addproduct.html">addproduct</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cart.html">cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html">login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./singup.html">singup</a>
+                    </li>
+                    <form class="d-flex" role="search" id="searching">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="abc">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <form action="" id="form">
+        <input type="text" id="title" placeholder="title">
+        <input type="src" id="img" placeholder="url">
+        <input type="number" id="price" placeholder="price">
+        <select name="value" id="optins">
+            <option value="select">select</option>
+            <option value="male">male</option>
+            <option value="Female">Female</option>
+            <option value="kids">kids</option>
+           
+        </select>
+        <input type="submit" placeholder="submit">
+
+    </form>
+    <div id="box"></div>
+</body>
+<script>
+    let product = JSON.parse(localStorage.getItem('data')) || [];
+    const handleData = (e) => {
+        e.preventDefault();
+        let data = {
+            title: document.getElementById('title').value,
+            img: document.getElementById('img').value,
+            price: document.getElementById('price').value,
+            optins: document.getElementById('optins').value,
+        };
+
+        product.push(data);
+        localStorage.setItem('data', JSON.stringify(product));
+
+    };
+
+    document.getElementById("form").addEventListener("submit", handleData);
+</script>
+
+</html>
